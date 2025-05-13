@@ -1,0 +1,27 @@
+@use '../theme/variables.scss' as *;
+
+mat-toolbar {
+    background-color: $dark-primary-color;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    display: flex;
+
+    h1 {
+        color: $secondary-color;
+        font-size: 30px;
+        font-weight: bold;
+    }
+}
+
+.app-footer {
+    justify-content: center;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    mat-toolbar h1 {
+        font-size: 24px;
+    }
+}

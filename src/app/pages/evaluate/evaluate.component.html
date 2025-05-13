@@ -1,0 +1,61 @@
+<div class="container">
+  <mat-card class="form-container">
+    <mat-card-title>Заполните форму</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="scoringForm" (ngSubmit)="onSubmit()">
+        <div class="form-grid">
+          <mat-form-field floatLabel="always" appearance="outline">
+            <mat-label>Возраст</mat-label>
+            <input matInput formControlName="age" type="number" class="input-right-align">
+          </mat-form-field>
+
+          <mat-form-field floatLabel="always" appearance="outline">
+            <mat-label>Иждивенцы</mat-label>
+            <input matInput formControlName="dependents" type="number" class="input-right-align">
+          </mat-form-field>
+
+          <mat-form-field floatLabel="always" appearance="outline">
+            <mat-label>Ежемесячный доход</mat-label>
+            <input matInput formControlName="income" type="number" class="input-right-align" placeholder="0.00" />
+            <span matTextPrefix>$&nbsp;</span>
+          </mat-form-field>
+
+          <mat-form-field floatLabel="always" appearance="outline">
+            <mat-label>Открытых кредитов</mat-label>
+            <input matInput formControlName="openLoans" type="number" class="input-right-align">
+          </mat-form-field>
+
+          <mat-form-field floatLabel="always" appearance="outline">
+            <mat-label>Ипотечных кредитов</mat-label>
+            <input matInput formControlName="estateLoans" type="number" class="input-right-align">
+          </mat-form-field>
+
+          <mat-form-field floatLabel="always" appearance="outline">
+            <mat-label>% кредитного лимита</mat-label>
+            <input matInput formControlName="utilization" type="number" class="input-right-align" placeholder="0">
+            <span matTextSuffix>%</span>
+          </mat-form-field>
+
+          <mat-form-field floatLabel="always" appearance="outline">
+            <mat-label>% задолженности</mat-label>
+            <input matInput formControlName="ratio" type="number" class="input-right-align" placeholder="0">
+            <span matTextSuffix>%</span>
+          </mat-form-field>
+
+          <mat-form-field floatLabel="always" appearance="outline">
+            <mat-label>Просрочек 30–59 дней</mat-label>
+            <input matInput formControlName="pastTimes" type="number">
+          </mat-form-field>
+
+          <button mat-flat-button id="submit-btn" color="primary" type="submit"
+            [disabled]="scoringForm.invalid || isLoading">
+            Провести оценку
+          </button>
+        </div>
+        <div class="error-message" [style.color]="errorMessage ? '#800000' : '#efefef'">
+          *Произошла ошибка при попытке выполнить оценку. Попробуйте снова.
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
