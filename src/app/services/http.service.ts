@@ -37,7 +37,7 @@ export class HttpService {
 
         return this.http
             .post<ScoringData>(
-                `${this.baseUrl}/v1/score`,
+                `${this.baseUrl}/api/scoring/predict`,
                 payload,
                 { observe: 'response' }
             )

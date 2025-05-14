@@ -99,7 +99,7 @@ export class EvaluateComponent {
         this.isLoading = false;
       },
       error => {
-        console.error('Ошибка оценки', error)
+        console.error('Prediction error:', error)
         this.errorMessage = '*Произошла ошибка при попытке выполнить оценку. Попробуйте снова.';
         this.isLoading = false;
       }
@@ -109,10 +109,12 @@ export class EvaluateComponent {
   openDialog(info: any, prediction: any): void {
     const dialogRef = this.dialog.open(PredictionComponent, {
       data: { info, prediction },
+      height: '520px',
+      width: '350px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.scoringForm.reset();
     });
   }
 }

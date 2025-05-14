@@ -1,1 +1,47 @@
-<p>form works!</p>
+<h2 mat-dialog-title>Отчет об оценке</h2>
+
+<mat-dialog-content>
+    <div class="params-grid">
+        <div class="param">
+            <span>Возраст:</span>
+            <span>{{ info.age }}</span>
+        </div>
+        <div class="param">
+            <span>Иждивенцы:</span>
+            <span>{{ info.dependents || 0.0 }}</span>
+        </div>
+        <div class="param">
+            <span>Доход:</span>
+            <span>${{ info.income || 0.0 }}</span>
+        </div>
+        <div class="param">
+            <span>Открытые кредиты:</span>
+            <span>{{ info.openLoans || 0.0 }}</span>
+        </div>
+        <div class="param">
+            <span>Ипотека:</span>
+            <span>{{ info.estateLoans || 0.0 }}</span>
+        </div>
+        <div class="param">
+            <span>Использование кредита:</span>
+            <span>{{ info.utilization ? (info.utilization * 100) : 0.0}}%</span>
+        </div>
+        <div class="param">
+            <span>Коэф. задолженности:</span>
+            <span>{{ info.ratio ? (info.ratio * 100) : 0.0 }}%</span>
+        </div>
+        <div class="param">
+            <span>Просрочки 30-59 дней:</span>
+            <span>{{ info.pastTimes || 0.0 }}</span>
+        </div>
+        <div class="param">
+            <span style="font-weight: bold;">Результат оценки:</span>
+            <span *ngIf="!prediction" style="color: green;">Надежный</span>
+            <span *ngIf="prediction" style="color: red;">Ненадежный</span>
+        </div>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>OK</button>
+</mat-dialog-actions>

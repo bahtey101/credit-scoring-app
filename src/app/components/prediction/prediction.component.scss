@@ -1,0 +1,30 @@
+.params-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px 16px;
+    margin-top: 12px;
+
+    .param {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #333;
+        padding: 4px 0;
+        border-bottom: 1px solid #eee;
+
+        span:first-child {
+            font-weight: 500;
+            color: #555;
+        }
+
+        span:last-child {
+            text-align: right;
+            font-weight: 600;
+            color: #111;
+        }
+    }
+}
+
+mat-dialog-content {
+    padding: 16px 20px !important;
+}
